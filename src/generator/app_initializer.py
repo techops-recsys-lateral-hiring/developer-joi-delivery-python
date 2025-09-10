@@ -20,7 +20,6 @@ class SeedData:
     def create_store(outlet_name: str, store_id: str) -> GroceryStore:
         return GroceryStore(
             name=outlet_name,
-            description=f"Store {outlet_name}",
             outlet_id=store_id
         )
     
@@ -28,7 +27,6 @@ class SeedData:
     def create_user(user_id: str, first_name: str, last_name: str) -> User:
         return User(
             user_id=user_id,
-            username=f"{first_name.lower()}{last_name.lower()}",
             first_name=first_name,
             last_name=last_name,
             email=f"{first_name}.{last_name}@gmail.com",
@@ -45,12 +43,9 @@ class SeedData:
             product_name=product_name,
             product_id=product_id,
             mrp=10.5,
-            selling_price=10.5,
             weight=500.00,
-            expiry_date=7,
             threshold=10,
             available_stock=30,
-            discount=0.0,
             store=store
         )
 

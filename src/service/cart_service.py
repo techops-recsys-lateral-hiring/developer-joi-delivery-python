@@ -14,21 +14,23 @@ class CartService:
 
     def add_product_to_cart_for_user(self, add_product_request: AddProductRequest) -> CartProductInfo:
         user = self.user_service.fetch_user_by_id(add_product_request.user_id)
-        cart = self._fetch_cart_for_user(user)
+        cart = self.fetch_cart_for_user(user)
         product = self.product_service.get_product(add_product_request.product_id, add_product_request.outlet_id)
         cart.products.append(product)
         
         result = CartProductInfo(
             cart=cart.to_json(),
             product=product.to_json(),
-            selling_price=product.selling_price if hasattr(product, 'selling_price') else product.mrp
+            selling_price=product.selling_price
         )
         return result
 
     def get_cart_for_user(self, user_id: str) -> Optional[Cart]:
         user = self.user_service.fetch_user_by_id(user_id)
-        return self._fetch_cart_for_user(user)
+        return self.fetch_cart_for_user(user)
   
 
-    def _fetch_cart_for_user(self, user: User) -> Optional[Cart]:
+    def fetch_cart_for_user(self, user: User) -> Optional[Cart]:
+        if user is None:
+            return None
         return self.user_carts.get(user.user_id)

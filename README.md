@@ -127,35 +127,49 @@ Response Body
 {
   "cart": {
     "cart_id": "cart101",
-    "outlet": null,
+    "outlet": {
+      "name": "Fresh Picks",
+      "description": null,
+      "outlet_id": "store101",
+      "inventory": []
+    },
     "products": [
       {
-        "product_id": "product103",
-        "product_name": "Crackers",
+        "product_id": "product101",
+        "product_name": "Wheat Bread",
         "mrp": 10.5,
         "selling_price": null,
         "weight": 500,
-        "expiry_date": 0,
+        "expiry_date": null,
         "threshold": 10,
         "available_stock": 30,
         "discount": null,
         "store": {
           "name": "Fresh Picks",
           "description": null,
-          "outletId": "store101",
+          "outlet_id": "store101",
           "inventory": []
-        }
+        },
+        "product_type": "grocery"
       }
     ],
-    "user": null
+    "user": {
+      "user_id": "user101",
+      "username": "",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "John.Doe@gmail.com",
+      "phone_number": "648518559",
+      "cart": null
+    }
   },
   "product": {
-    "product_id": "product103",
-    "product_name": "Crackers",
+    "product_id": "product101",
+    "product_name": "Wheat Bread",
     "mrp": 10.5,
     "selling_price": null,
     "weight": 500,
-    "expiry_date": 0,
+    "expiry_date": null,
     "threshold": 10,
     "available_stock": 30,
     "discount": null,
@@ -164,7 +178,8 @@ Response Body
       "description": null,
       "outlet_id": "store101",
       "inventory": []
-    }
+    },
+    "product_type": "grocery"
   },
   "selling_price": null
 }
@@ -181,9 +196,21 @@ Response Body
 ```json
 {
   "cart_id": "cart101",
-  "outlet": null,
+  "outlet": {
+    "name": "Fresh Picks",
+    "outlet_id": "store101",
+    "description": null
+  },
   "products": [],
-  "user": null
+  "user": {
+    "user_id": "user101",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "John.Doe@gmail.com",
+    "phone_number": "813908873",
+    "cart": null,
+    "username": null
+  }
 }
 ```
 

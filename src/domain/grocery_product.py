@@ -1,5 +1,6 @@
+from __future__ import annotations
 from dataclasses import dataclass
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING
 from .product import Product
 
 if TYPE_CHECKING:
@@ -8,13 +9,13 @@ if TYPE_CHECKING:
 
 @dataclass
 class GroceryProduct(Product):
-    selling_price: float
     weight: float
-    expiry_date: int
     threshold: int
     available_stock: int
-    discount: float
-    store: Optional['GroceryStore'] = None
+    store: GroceryStore | None = None
+    selling_price: float | None = None
+    expiry_date: int | None = None
+    discount: float | None = None
 
     def to_json(self):
         base_json = super().to_json()
@@ -28,4 +29,4 @@ class GroceryProduct(Product):
             "store": self.store.to_json() if self.store else None,
             "product_type": "grocery"
         })
-        return base_json 
+        return base_json

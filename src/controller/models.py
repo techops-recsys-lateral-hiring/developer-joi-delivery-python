@@ -10,4 +10,4 @@ class AddProductRequest(BaseModel):
 class CartProductInfo(BaseModel):
     cart: dict
     product: dict
-    selling_price: float
+    selling_price: float | None = None
