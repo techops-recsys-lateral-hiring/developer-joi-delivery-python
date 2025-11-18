@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A thoughtful, technology-first food and grocery delivery platform"
 authors = ["Aida Sabaghmoghadam <aida.sabaghmoghadam@thoughtworks.com>"]
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "joi_delivery", from = "src" }]
 
 [tool.poetry.dependencies]
 fastapi = "^0.110.1"
