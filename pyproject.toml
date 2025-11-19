@@ -2,9 +2,7 @@
 name = "joi-delivery"
 version = "0.1.0"
 description = "A thoughtful, technology-first food and grocery delivery platform"
-authors = [
-    "Aida Sabaghmoghadam <aida.sabaghmoghadam@thoughtworks.com>"
-]
+authors = ["Aida Sabaghmoghadam <aida.sabaghmoghadam@thoughtworks.com>"]
 readme = "README.md"
 packages = [{ include = "src" }]
 
@@ -41,4 +39,4 @@ lint.select = ["I00", "E", "F", "W"]
 
 [tool.black]
 line-length = 120
-target-version = ['py39'] 
+target-version = ['py39']
