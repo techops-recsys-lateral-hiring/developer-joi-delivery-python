@@ -1,9 +1,10 @@
 from typing import Optional
+
+from ..controller.models import AddProductRequest, CartProductInfo
 from ..domain.cart import Cart
 from ..domain.user import User
-from ..service.user_service import UserService
 from ..service.product_service import ProductService
-from ..controller.models import AddProductRequest, CartProductInfo
+from ..service.user_service import UserService
 
 
 class CartService:

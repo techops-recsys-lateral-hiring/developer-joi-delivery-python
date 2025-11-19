@@ -1,9 +1,9 @@
-from fastapi import APIRouter, HTTPException, Query, Depends
-from loguru import logger
+from fastapi import APIRouter, Depends, Query
+
+from ..dependencies import get_cart_service
+from ..domain.cart import Cart
 from ..service.cart_service import CartService
 from .models import AddProductRequest, CartProductInfo
-from ..domain.cart import Cart
-from ..dependencies import get_cart_service
 
 router = APIRouter(prefix="/cart", tags=["cart"])
 

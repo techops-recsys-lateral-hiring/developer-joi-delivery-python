@@ -1,5 +1,6 @@
 from http import HTTPStatus
 
+import uvicorn
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from loguru import logger
@@ -8,9 +9,8 @@ from starlette.responses import JSONResponse
 from joi_delivery.generator.app_initializer import initialize_data
 from joi_delivery.router import router
 from joi_delivery.service.cart_service import CartService
-from joi_delivery.service.user_service import UserService
 from joi_delivery.service.product_service import ProductService
-import uvicorn
+from joi_delivery.service.user_service import UserService
 
 
 def create_app() -> FastAPI:

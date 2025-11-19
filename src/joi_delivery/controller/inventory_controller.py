@@ -1,4 +1,5 @@
 from http import HTTPStatus
+
 from fastapi import APIRouter, Query, Response
 
 router = APIRouter(prefix="/inventory", tags=["inventory"])

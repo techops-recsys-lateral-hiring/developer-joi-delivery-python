@@ -1,8 +1,10 @@
 from __future__ import annotations
+
 from dataclasses import dataclass, field
+
 from .outlet import Outlet
-from .user import User
 from .product import Product
+from .user import User
 
 
 @dataclass

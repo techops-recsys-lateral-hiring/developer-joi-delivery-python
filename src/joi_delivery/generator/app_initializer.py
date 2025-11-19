@@ -1,10 +1,11 @@
 import random
-from typing import Dict, List
+
 from loguru import logger
+
 from ..domain.cart import Cart
-from ..domain.user import User
-from ..domain.grocery_store import GroceryStore
 from ..domain.grocery_product import GroceryProduct
+from ..domain.grocery_store import GroceryStore
+from ..domain.user import User
 
 
 class SeedData:
