@@ -10,6 +10,7 @@ from joi_delivery.router import router
 from joi_delivery.service.cart_service import CartService
 from joi_delivery.service.user_service import UserService
 from joi_delivery.service.product_service import ProductService
+import uvicorn
 
 
 def create_app() -> FastAPI:
@@ -47,5 +48,9 @@ def create_app() -> FastAPI:
 app = create_app()
 
 
-if __name__ == "__main__":
+def main():
     uvicorn.run(app, host="127.0.0.1", port=8020)
+
+
+if __name__ == "__main__":
+    main()
