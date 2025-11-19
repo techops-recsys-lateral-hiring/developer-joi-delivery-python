@@ -61,7 +61,7 @@ Dummy Products for Stores to sell and users to buy from.
 - **Language**: Python 3.12
 - **Dependency Management**: Poetry
 - **Testing**: pytest
-- **Code Quality**: Ruff, Black
+- **Code Quality**: Ruff
 - **Logging**: Loguru
 
 ## Getting Started

@@ -20,7 +20,6 @@ uvicorn = "^0.29.0"
 optional = true
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.3.5"
-black = "^24.3.0"
 pytest = "^8.1.1"
 pytest-cov = "^5.0.0"
 
@@ -35,8 +34,3 @@ lint.ignore = ["E731"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["INP001"]
-
-
-[tool.black]
-line-length = 120
-target-version = ['py39']
