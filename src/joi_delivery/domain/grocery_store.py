@@ -1,7 +1,9 @@
 from __future__ import annotations
+
 from dataclasses import dataclass, field
-from .outlet import Outlet
+
 from .grocery_product import GroceryProduct
+from .outlet import Outlet
 
 
 @dataclass

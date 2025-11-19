@@ -1,5 +1,4 @@
 import pytest
-from unittest.mock import Mock, patch
 from fastapi.testclient import TestClient
 from joi_delivery.main import app
 
