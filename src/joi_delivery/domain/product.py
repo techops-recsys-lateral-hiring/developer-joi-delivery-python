@@ -9,8 +9,4 @@ class Product(ABC):
     mrp: float
 
     def to_json(self):
-        return {
-            "product_id": self.product_id,
-            "product_name": self.product_name,
-            "mrp": self.mrp
-        }
+        return {"product_id": self.product_id, "product_name": self.product_name, "mrp": self.mrp}

@@ -4,4 +4,4 @@ from .product import Product
 
 @dataclass
 class FoodProduct(Product):
-    pass 
+    pass

@@ -10,7 +10,5 @@ class GroceryStore(Outlet):
 
     def to_json(self):
         base_json = super().to_json()
-        base_json.update({
-            "inventory": [product.to_json() for product in self.inventory]
-        })
+        base_json.update({"inventory": [product.to_json() for product in self.inventory]})
         return base_json
