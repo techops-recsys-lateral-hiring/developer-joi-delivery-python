@@ -6,6 +6,9 @@ authors = ["Aida Sabaghmoghadam <aida.sabaghmoghadam@thoughtworks.com>"]
 readme = "README.md"
 packages = [{ include = "joi_delivery", from = "src" }]
 
+[tool.poetry.scripts]
+app = "joi_delivery.main:main"
+
 [tool.poetry.dependencies]
 fastapi = "^0.110.1"
 httpx = "^0.27.0"
