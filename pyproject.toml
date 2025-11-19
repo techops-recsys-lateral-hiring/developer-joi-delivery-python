@@ -28,6 +28,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 line-length = 120
 lint.select = ["I00", "E", "F", "W"]
+lint.ignore = ["E731"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["INP001"]
+
 
 [tool.black]
 line-length = 120
