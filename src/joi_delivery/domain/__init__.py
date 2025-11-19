@@ -9,7 +9,4 @@ from .outlet import Outlet
 from .grocery_store import GroceryStore
 from .restaurant import Restaurant
 
-__all__ = [
-    'User', 'Cart', 'Product', 'FoodProduct', 'GroceryProduct',
-    'Outlet', 'GroceryStore', 'Restaurant'
-] 
+__all__ = ["User", "Cart", "Product", "FoodProduct", "GroceryProduct", "Outlet", "GroceryStore", "Restaurant"]

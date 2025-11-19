@@ -6,4 +6,4 @@ from .food_product import FoodProduct
 
 @dataclass
 class Restaurant(Outlet):
-   pass
+    pass

@@ -6,5 +6,5 @@ from .system.routes import router as system_router
 router = APIRouter()
 
 router.include_router(cart_router)
-router.include_router(inventory_router) 
+router.include_router(inventory_router)
 router.include_router(system_router)

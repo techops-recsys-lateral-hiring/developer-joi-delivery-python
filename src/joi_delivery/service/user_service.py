@@ -10,4 +10,4 @@ class UserService:
         for user in self.users:
             if user_id == user.user_id:
                 return user
-        return None 
+        return None
