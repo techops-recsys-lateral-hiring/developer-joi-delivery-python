@@ -88,6 +88,17 @@ Dummy Products for Stores to sell and users to buy from.
 
 3. **Run the application**
 
+  use the command installed by the package.
+   ```bash
+   app
+   ```
+
+  use the helpful script.
+   ```bash
+   poetry run python app.py
+   ```
+
+  manually run the uvicorn command to start the app.
    ```bash
    poetry run python -m uvicorn joi_delivery.main:app --reload --port 8020
    ```
