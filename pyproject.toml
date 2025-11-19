@@ -27,6 +27,7 @@ black = "^24.3.0"
 
 [[tool.poetry.source]]
 name = "PyPI"
+url = "https://pypi.org/simple"
 priority = "primary"
 
 [build-system]
