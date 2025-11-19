@@ -13,17 +13,13 @@ loguru = "^0.7.2"
 python = "^3.12"
 uvicorn = "^0.29.0"
 
-[tool.poetry.group.tests]
+[tool.poetry.group.dev]
 optional = true
-[tool.poetry.group.tests.dependencies]
-pytest = "^8.1.1"
-pytest-cov = "^5.0.0"
-
-[tool.poetry.group.ci]
-optional = true
-[tool.poetry.group.ci.dependencies]
+[tool.poetry.group.dev.dependencies]
 ruff = "^0.3.5"
 black = "^24.3.0"
+pytest = "^8.1.1"
+pytest-cov = "^5.0.0"
 
 [build-system]
 requires = ["poetry-core"]

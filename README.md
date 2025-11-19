@@ -83,7 +83,7 @@ Dummy Products for Stores to sell and users to buy from.
 2. **Install dependencies**
 
    ```bash
-   poetry install --with ci,tests
+   poetry install --with dev
    ```
 
 3. **Run the application**
