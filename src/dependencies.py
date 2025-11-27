@@ -1,7 +1,8 @@
-from fastapi import Depends, Request
+from fastapi import Request
+
 from src.service.cart_service import CartService
-from src.service.user_service import UserService
 from src.service.product_service import ProductService
+from src.service.user_service import UserService
 
 
 def get_user_service(request: Request) -> UserService:

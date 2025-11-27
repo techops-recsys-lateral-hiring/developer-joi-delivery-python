@@ -1,11 +1,13 @@
+from unittest.mock import patch
+
 import pytest
-from unittest.mock import Mock, patch
 from fastapi.testclient import TestClient
-from src.main import app
-from src.domain.user import User
-from src.domain.grocery_store import GroceryStore
-from src.domain.grocery_product import GroceryProduct
+
 from src.domain.cart import Cart
+from src.domain.grocery_product import GroceryProduct
+from src.domain.grocery_store import GroceryStore
+from src.domain.user import User
+from src.main import app
 
 
 class TestCartController:
@@ -21,16 +23,12 @@ class TestCartController:
             first_name="John",
             last_name="Doe",
             email="john.doe@gmail.com",
-            phone_number="123456789"
+            phone_number="123456789",
         )
 
     @pytest.fixture
     def sample_store(self):
-        return GroceryStore(
-            name="Fresh Picks",
-            description="Fresh grocery store",
-            outlet_id="store101"
-        )
+        return GroceryStore(name="Fresh Picks", description="Fresh grocery store", outlet_id="store101")
 
     @pytest.fixture
     def sample_product(self, sample_store):
@@ -44,63 +42,51 @@ class TestCartController:
             threshold=10,
             available_stock=30,
             discount=0.0,
-            store=sample_store
+            store=sample_store,
         )
 
     @pytest.fixture
     def sample_cart(self, sample_user, sample_store):
-        return Cart(
-            cart_id="cart101",
-            outlet=sample_store,
-            user=sample_user
-        )
+        return Cart(cart_id="cart101", outlet=sample_store, user=sample_user)
 
-    @patch('src.controller.cart_controller.CartService.add_product_to_cart_for_user')
+    @patch("src.controller.cart_controller.CartService.add_product_to_cart_for_user")
     def test_should_add_the_requested_product_to_the_cart(self, mock_add_product, client):
         # Mock the service method to return the expected format
         mock_add_product.return_value = {
             "cart": {"cart_id": "cart101", "outlet": {}, "user": {}, "products": []},
             "product": {"product_id": "product101", "product_name": "Wheat Bread", "mrp": 10.5},
-            "selling_price": 10.5
+            "selling_price": 10.5,
         }
-        
+
         url = "/cart/product"
-        add_product_request = {
-            "product_id": "product101",
-            "user_id": "user101",
-            "outlet_id": "store101"
-        }
-        
+        add_product_request = {"product_id": "product101", "user_id": "user101", "outlet_id": "store101"}
+
         response = client.post(url, json=add_product_request)
-        
+
         assert response.status_code == 200
 
-    @patch('src.controller.cart_controller.CartService.get_cart_for_user')
+    @patch("src.controller.cart_controller.CartService.get_cart_for_user")
     def test_should_return_the_cart(self, mock_get_cart, client):
         # Mock the service method to return a Cart object
         mock_cart = Cart(
             cart_id="cart101",
-            outlet=GroceryStore(
-                name="Fresh Picks",
-                description="Fresh grocery store",
-                outlet_id="store101"
-            ),
+            outlet=GroceryStore(name="Fresh Picks", description="Fresh grocery store", outlet_id="store101"),
             user=User(
                 user_id="user101",
                 username="johndoe",
                 first_name="John",
                 last_name="Doe",
                 email="john.doe@gmail.com",
-                phone_number="123456789"
+                phone_number="123456789",
             ),
-            products=[]
+            products=[],
         )
         mock_get_cart.return_value = mock_cart
-        
+
         url = "/cart/view?user_id=user101"
-        
+
         response = client.get(url)
-        
+
         assert response.status_code == 200
         data = response.json()
         assert data["cart_id"] == "cart101"

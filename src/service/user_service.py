@@ -1,4 +1,5 @@
-from typing import Optional, List
+from typing import List, Optional
+
 from ..domain.user import User
 
 
@@ -10,4 +11,4 @@ class UserService:
         for user in self.users:
             if user_id == user.user_id:
                 return user
-        return None 
+        return None
