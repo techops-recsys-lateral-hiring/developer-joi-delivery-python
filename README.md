@@ -82,23 +82,37 @@ Dummy Products for Stores to sell and users to buy from.
 
 2. **Install dependencies**
 
+   Using Poetry:
+
    ```bash
    poetry install --with dev
+   ```
+
+   For those who prefer nix to avoid global installs, feel free to use the provided `shell.nix` file.
+
+   - Install nix if you don't have it already; [instructions](https://nixos.org/download/).
+   - Simply run this to activate an isolated shell with all required dependencies:
+
+   ```bash
+   nix-shell
    ```
 
 3. **Run the application**
 
   use the command installed by the package.
+
    ```bash
    app
    ```
 
   use the helpful script.
+
    ```bash
    poetry run python app.py
    ```
 
   manually run the uvicorn command to start the app.
+
    ```bash
    poetry run python -m uvicorn joi_delivery.main:app --reload --port 8020
    ```
