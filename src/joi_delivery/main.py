@@ -9,6 +9,7 @@ from starlette.responses import JSONResponse
 from joi_delivery.generator.app_initializer import initialize_data
 from joi_delivery.router import router
 from joi_delivery.service.cart_service import CartService
+from joi_delivery.service.inventory_service import InventoryService
 from joi_delivery.service.product_service import ProductService
 from joi_delivery.service.user_service import UserService
 
@@ -27,6 +28,10 @@ def create_app() -> FastAPI:
 
     app.state.user_service = UserService(users=seed_data["users"])
     app.state.product_service = ProductService(products=seed_data["grocery_products"])
+    app.state.inventory_service = InventoryService(
+        products=seed_data["grocery_products"],
+        stores=seed_data["stores"],
+    )
     app.state.cart_service = CartService(
         user_service=app.state.user_service,
         product_service=app.state.product_service,

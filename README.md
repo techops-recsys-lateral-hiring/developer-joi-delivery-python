@@ -250,7 +250,36 @@ Response Body
 
 ```json lines
 {
-  // to be implemented.
+  "store_id": "store101",
+  "store_name": "Fresh Picks",
+  "total_products": 3,
+  "in_stock_products": 3,
+  "healthy_products": 3,
+  "low_stock_products": 0,
+  "out_of_stock_products": 0,
+  "products": [
+    {
+      "product_id": "product101",
+      "product_name": "Wheat Bread",
+      "available_stock": 30,
+      "threshold": 10,
+      "health_status": "healthy"
+    },
+    {
+      "product_id": "product102",
+      "product_name": "Spinach",
+      "available_stock": 30,
+      "threshold": 10,
+      "health_status": "healthy"
+    },
+    {
+      "product_id": "product103",
+      "product_name": "Crackers",
+      "available_stock": 30,
+      "threshold": 10,
+      "health_status": "healthy"
+    }
+  ]
 }
 ```
 
