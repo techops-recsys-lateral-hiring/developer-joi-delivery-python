@@ -1,3 +1,6 @@
+from fastapi import HTTPException
+
+
 class InventoryService:
 
     def __init__(self, inventory_data):
@@ -6,16 +9,16 @@ class InventoryService:
     def get_inventory_health(self, store_id: str):
 
         if store_id not in self.inventory_data:
-            raise ValueError("Store not found")
+            raise HTTPException(
+                status_code=404, detail={"message": "Store not found", "data": None}
+            )
+            # raise ValueError("Store not found")
 
         inventory = self.inventory_data[store_id]
 
         total_products = len(inventory)
 
-        out_of_stock = sum(
-            1 for item in inventory
-            if item.available_stock == 0
-        )
+        out_of_stock = sum(1 for item in inventory if item.available_stock == 0)
 
         return {
             "store_id": store_id,
