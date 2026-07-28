@@ -63,7 +63,15 @@ grocery_products = [
 
 users = [user101]
 stores = [store101, store102]
-
+inventory_data = {
+    "store101": [
+        grocery_products[0],
+        grocery_products[1],
+    ],
+    "store102": [
+        grocery_products[2]
+    ]
+}
 
 def initialize_data():
     logger.info("Initializing application with seed data...")
@@ -76,4 +84,4 @@ def initialize_data():
 
     logger.info("Application initialization completed successfully!")
 
-    return {"users": users, "grocery_products": grocery_products, "stores": stores, "cart_for_users": cart_for_users}
+    return {"users": users, "grocery_products": grocery_products, "stores": stores, "cart_for_users": cart_for_users, "inventory" : inventory_data}
