@@ -11,20 +11,23 @@ from joi_delivery.router import router
 from joi_delivery.service.cart_service import CartService
 from joi_delivery.service.product_service import ProductService
 from joi_delivery.service.user_service import UserService
-
+from joi_delivery.service.inventory_service import InventoryService
 
 def create_app() -> FastAPI:
+    #create fast api
     app = FastAPI(
         title="JOI Delivery",
         description="A thoughtful, technology-first food and grocery delivery platform",
         version="0.1.0",
     )
 
+    #init router
     app.include_router(router)
 
     # Initialize services with static seed data
     seed_data = initialize_data()
 
+    #register service
     app.state.user_service = UserService(users=seed_data["users"])
     app.state.product_service = ProductService(products=seed_data["grocery_products"])
     app.state.cart_service = CartService(
@@ -32,9 +35,12 @@ def create_app() -> FastAPI:
         product_service=app.state.product_service,
         cart_for_users=seed_data["cart_for_users"],
     )
-
+    app.state.inventory_service = InventoryService(
+        inventory_data=seed_data["inventory"]
+    )
     logger.info("Services initialized with static seed data")
 
+    #register exception handler
     @app.exception_handler(RequestValidationError)
     async def custom_validation_exception_handler(request, e):
         exc_str = f"{e}".replace("\n", " ").replace("   ", " ")
